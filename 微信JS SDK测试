@@ -15,26 +15,29 @@ http://cffvtc.natappfree.cc -> 127.0.0.1:80
 参考：
 https://blog.csdn.net/piisabutcher/article/details/103639980
 
-4. 
-
+4. 获取每个网页对应的signature
+https://developers.weixin.qq.com/doc/offiaccount/OA_Web_Apps/JS-SDK.html#111
+参考附录一
+4.1 用这个链接 获取access_token，替换appid和secret
 https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx8e16ba4f59758434&secret=7b8710de7511232f13c991f3b44cc2f7
 
-{"access_token":"51_7F6b7cEpHwY96aIe1yAvD2B5sBj621cDBuHwcDQK4QijO5di1IYX-ZXmcQ3ObnHF45xOxFYPYOa0CYSRaig6qyzWH2RtvQPH0Q4gBBJW8hR8ceCbPWVTAw_AyjzMIwidiUsLArmsMrtX6ByXKUBjAFABLS","expires_in":7200}
+4.2. 用这个链接，使用access_token获取jsapi_ticket
+https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=51_4xaFJjVx47I3Vnlw7eLlIUxfq7-hVyWa1b7-Y8l0A8M5FEPvtXXzCVfz8DQqwoOG9025Vcy2BM-iBePpL6hVbB9OocOF-mcr_k31KiGoQUn9CQFS2utElmgxu_NfKTp4rwIOYcAP8DZQstK2NCHdAFATIN&type=jsapi
 
-https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=51_7F6b7cEpHwY96aIe1yAvD2B5sBj621cDBuHwcDQK4QijO5di1IYX-ZXmcQ3ObnHF45xOxFYPYOa0CYSRaig6qyzWH2RtvQPH0Q4gBBJW8hR8ceCbPWVTAw_AyjzMIwidiUsLArmsMrtX6ByXKUBjAFABLS&type=jsapi
+4.3. 用获取的jsapi_ticket 获取signature，nonceStr和timestamp自行指定，和vue中保持一致即可
+http://mp.weixin.qq.com/debug/cgi-bin/sandbox?t=jsapisign
 
-{"errcode":0,"errmsg":"ok","ticket":"LIKLckvwlJT9cWIhEQTwfFRLxd5Y4Pw_dpZZ1uJaAJgsQ_CpPZQhD9OEcs1Hm2vN9NzramkE8unWa-fHRaJIuQ","expires_in":7200}
+5. vue项目生成index.html
+在vue中指定 4.3步的 signature，nonceStr和timestamp
 
-noncestr=Wm3WZYTPz0wzccnW
-jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg
-timestamp=1637419461
-url=http://mp.weixin.qq.com?params=value
+      cache: {
+        signature: '1af9f88d4a5598243db1f3a51845d81b0f1533a0',
+        echostr: '5282084476168019759',
+        timestamp: '1637424142',
+        nonce: '1637424142'
+      }
 
+6. 把 vue跑的结果，dist放到express下的路径，把express当做服务器，访问vue执行的结果
 
-jsapi_ticket=LIKLckvwlJT9cWIhEQTwfFRLxd5Y4Pw_dpZZ1uJaAJgsQ_CpPZQhD9OEcs1Hm2vN9NzramkE8unWa-fHRaJIuQ&noncestr=Wm3WZYTPz0wzccnW&timestamp=1637419461&url=http://jdhs9j.natappfree.cc/index.html
-
-a876c5e0ddb4f74be31e2ae9070a512271a38598
-
-SHA1在线转换
-
-http://www.metools.info/code/c22.html
+npm run build
+      
