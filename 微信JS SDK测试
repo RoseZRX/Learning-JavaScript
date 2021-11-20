@@ -1,0 +1,40 @@
+测试账号地址：
+https://mp.weixin.qq.com/debug/cgi-bin/sandboxinfo?action=showinfo&t=sandbox/index
+
+1. 使用个人微信号扫描登录。
+
+获取appID和appsecret
+
+
+2. 安装natapp，注册，实名认证，获取隧道信息tunnel
+
+http://cffvtc.natappfree.cc -> 127.0.0.1:80
+
+
+3. 本地部署nodejs和express
+参考：
+https://blog.csdn.net/piisabutcher/article/details/103639980
+
+4. 
+
+https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx8e16ba4f59758434&secret=7b8710de7511232f13c991f3b44cc2f7
+
+{"access_token":"51_7F6b7cEpHwY96aIe1yAvD2B5sBj621cDBuHwcDQK4QijO5di1IYX-ZXmcQ3ObnHF45xOxFYPYOa0CYSRaig6qyzWH2RtvQPH0Q4gBBJW8hR8ceCbPWVTAw_AyjzMIwidiUsLArmsMrtX6ByXKUBjAFABLS","expires_in":7200}
+
+https://api.weixin.qq.com/cgi-bin/ticket/getticket?access_token=51_7F6b7cEpHwY96aIe1yAvD2B5sBj621cDBuHwcDQK4QijO5di1IYX-ZXmcQ3ObnHF45xOxFYPYOa0CYSRaig6qyzWH2RtvQPH0Q4gBBJW8hR8ceCbPWVTAw_AyjzMIwidiUsLArmsMrtX6ByXKUBjAFABLS&type=jsapi
+
+{"errcode":0,"errmsg":"ok","ticket":"LIKLckvwlJT9cWIhEQTwfFRLxd5Y4Pw_dpZZ1uJaAJgsQ_CpPZQhD9OEcs1Hm2vN9NzramkE8unWa-fHRaJIuQ","expires_in":7200}
+
+noncestr=Wm3WZYTPz0wzccnW
+jsapi_ticket=sM4AOVdWfPE4DxkXGEs8VMCPGGVi4C3VM0P37wVUCFvkVAy_90u5h9nbSlYy3-Sl-HhTdfl2fzFy1AOcHKP7qg
+timestamp=1637419461
+url=http://mp.weixin.qq.com?params=value
+
+
+jsapi_ticket=LIKLckvwlJT9cWIhEQTwfFRLxd5Y4Pw_dpZZ1uJaAJgsQ_CpPZQhD9OEcs1Hm2vN9NzramkE8unWa-fHRaJIuQ&noncestr=Wm3WZYTPz0wzccnW&timestamp=1637419461&url=http://jdhs9j.natappfree.cc/index.html
+
+a876c5e0ddb4f74be31e2ae9070a512271a38598
+
+SHA1在线转换
+
+http://www.metools.info/code/c22.html
