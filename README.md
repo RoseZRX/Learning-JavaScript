@@ -22,8 +22,8 @@ ssh-keygen –t rsa
 将生成的公钥 id_rsa.pub内容拷贝到网站指定位置
 
 
-
 例行工作
+=======提交本地文件到服务器=============
 1. 进入对应目录，先把git上的代码下载到本地，并生成.git版本管理目录（用git方式，不要用https方式，https方式要输入用户名密码）
 git clone git@github.com:RoseZRX/Learning-JavaScript.git（https://github.com/CKTim/BlueTooth.git替换成你之前复制的地址）
 
@@ -35,6 +35,10 @@ git add .
 git commit  -m  "提交信息"  （注：“提交信息”里面换成你需要，如“first commit”）
 git push -u origin master   （注：此操作目的是把本地仓库push到github上面，提交到master分支，git方式可以不要账号密码）
 
+========本地更新某个文件到服务器=========
+$ git add README.md
+$ git commit -m "提交如何给github提交代码"
+$ git push origin master
 
 
 其他：
