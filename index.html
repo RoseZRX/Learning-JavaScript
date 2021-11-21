@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>wx</title>
+    <script src="http://res2.wx.qq.com/open/js/jweixin-1.6.0.js"></script>
+</head>
+<body>
+    <script>
+
+请将文件MP_verify_15etd9ljNfecwiu0.txt上传至lfcontentcenterdev.hwcloudtest.cn/cch5/Brower/O指向的web服务器（或虚拟主机）的目录
+
+        //  lfcontentcenterdev.hwcloudtest.cn/cch5/Brower/O
+        //  lfcontentcenterdev.hwcloudtest.cn/sandbox/cch5/B/O
+        //  lfcontentcenterdev.hwcloudtest.cn/cch5/B/O
+        // appid="wx6e7fc5c60e0780c4"
+        // secret="2cc0ebb2035b9bcb47ac697c637d838d"
+        // appsecret = 439b70305b27dcc0ae402a41f3a587f7
+        // wx.config({
+        //     debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+        //     appId: 'wx0a8c976940b1918a', // 必填，公众号的唯一标识
+        //     timestamp: Date.parse(new Date()), // 必填，生成签名的时间戳
+        //     nonceStr: '', // 必填，生成签名的随机串
+        //     signature: '',// 必填，签名
+        //     jsApiList: ['onMenuShareTimeline', 'onMenuShareAppMessage'] // 必填，需要使用的JS接口列表
+        // });
+        
+            fetch('https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid=wx0a8c976940b1918a&secret=a4a14dc38d89619565dde4e6b97342f2', {
+            mode: 'no-cors',
+            method: 'get'
+        }).then(res => {
+            console.log(res)
+        })
+        
+        wx.ready(()=>{
+            
+        })
+
+        wx.error((err) => {
+            console.log(err)
+        })
+
+
+    </script>
+</body>
+</html> 
